@@ -32,7 +32,7 @@ TRANSLATIONS = \
   i18n/qfield_uk.ts \
   i18n/qfield_zh.ts
 
-SUBDIRS += 3rdparty qgsquick core app
+SUBDIRS += 3rdparty qgsquick core app test
 
 qgsquick.subdir = src/qgsquick
 core.subdir = src/core
@@ -44,12 +44,7 @@ app.depends = 3rdparty
 app.depends = qgsquick
 app.depends = core
 
+test.depends = qgsquick
+test.depends = core
+
 CONFIG += ordered
-
-# Include the tests and plugins subprojects only on debug mode
-CONFIG(debug, debug|release): {
-  SUBDIRS += test
-  test.depends = qgsquick
-  test.depends = core
-}
-
