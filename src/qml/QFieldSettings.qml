@@ -272,26 +272,14 @@ Page {
                 checked: true
                 Layout.alignment: Qt.AlignTop
             }
-
-          /*
-  // To be used in combination with code in main.cpp
-        Switch {
-          text: qsTr( "High Dpi support. !EXPERIMENTAL! (requires restart)" )
-          font: Theme.defaultFont
-
-          checked: settings.value( "/HighDpiScaling", false )
-
-          onCheckedChanged: {
-            settings.setValue( "/HighDpiScaling", checked )
-          }
-        }
-*/
         }
       }
 
       Item {
         VariableEditor {
           id: variableEditor
+          anchors.fill: parent
+          anchors.margins: 4 * dp
         }
       }
     }
