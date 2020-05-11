@@ -106,7 +106,7 @@ Item {
     // stylus clicked
     TapHandler {
       enabled: !mouseAsTouchScreen
-      acceptedDevices: PointerDevice.AllDevices & ~PointerDevice.TouchScreen
+      acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus | PointerDevice.TouchPad
       property bool longPressActive: false
 
       onSingleTapped: {
