@@ -24,6 +24,7 @@ HEADERS += \
     appinterface.h \
     featurelistextentcontroller.h \
     geometryeditorsmodel.h \
+    multifeaturelistmodelbase.h \
     multifeaturelistmodel.h \
     featurelistmodelselection.h \
     featuremodel.h \
@@ -79,6 +80,7 @@ SOURCES += \
     appinterface.cpp \
     featurelistextentcontroller.cpp \
     geometryeditorsmodel.cpp \
+    multifeaturelistmodelbase.cpp \
     multifeaturelistmodel.cpp \
     featurelistmodelselection.cpp \
     featuremodel.cpp \
