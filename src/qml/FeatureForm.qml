@@ -262,7 +262,7 @@ Page {
           anchors { left: parent.left; right: parent.right }
 
           //disable widget if the form is in ReadOnly mode, or if it's an RelationEditor widget in an embedded form
-          enabled: (form.state !== 'ReadOnly' || EditorWidget === 'RelationEditor' || EditorWidget === 'ValueRelation' || EditorWidget === 'ExternalResource' ) && !!AttributeEditable
+          enabled: AttributeAllowEdit && ((form.state !== 'ReadOnly' || EditorWidget === 'RelationEditor' || EditorWidget === 'ValueRelation' || EditorWidget === 'ExternalResource' ) && !!AttributeEditable)
           property bool readOnly: form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor'
           property var value: AttributeValue
           property var config: ( EditorWidgetConfig || {} )
@@ -331,6 +331,24 @@ Page {
         indicator.width: 16
         icon.height: 16
         icon.width: 16
+      }
+
+      Label {
+        id: multiEditAttributeLabel
+        text: (AttributeAllowEdit ? "Value applied" : "Value skipped") + " (click to toggle)"
+        visible: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel
+        height: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ? undefined : 0
+        bottomPadding: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ? 15 : 0
+        anchors { left: parent.left; top: placeholder.bottom;  rightMargin: 10; }
+        font: Theme.tipFont
+        color: AttributeAllowEdit ? Theme.mainColor : Theme.lightGray
+
+        MouseArea {
+          anchors.fill: parent
+          onClicked: {
+              AttributeAllowEdit = !AttributeAllowEdit
+          }
+        }
       }
     }
   }
