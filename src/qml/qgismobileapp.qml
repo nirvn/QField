@@ -183,16 +183,15 @@ ApplicationWindow {
         grabPermissions: PointerHandler.TakeOverForbidden
 
         onPointChanged: {
-            parent.hasBeenTouched = true
+            parent.hasBeenTouched = active || hovered
         }
 
         onActiveChanged: {
-            parent.hasBeenTouched = true
-
+            parent.hasBeenTouched = active
         }
 
         onHoveredChanged: {
-            parent.hasBeenTouched = true
+            parent.hasBeenTouched = hovered
         }
     }
 
